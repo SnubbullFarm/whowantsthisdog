@@ -1,46 +1,59 @@
-# Getting Started with Create React App
+# Environment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This stack for this project includes Yarn, Node.js, React, and Material UI.
 
-## Available Scripts
+## Node.js
 
-In the project directory, you can run:
+Node.js and React are the frameworks of the app.
 
-### `yarn start`
+## Yarn
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Yarn is the package manager used to manage dependencies. Use this to install existing or add new APIs.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## MUI
 
-### `yarn test`
+Material UI is a library of React components used for the UI.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installing Node.js
 
-### `yarn build`
+Follow the instructions on the Node.js [website](https://nodejs.org/en/download/current) to install Node.js.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installing Yarn
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Open a command console and run the command:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm install --global yarn
+```
 
-### `yarn eject`
+## Project Directory
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Create an empty folder where you want to store your app.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Install Git
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Follow the instructions on [Git](https://git-scm.com/downloads) to download Git.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Clone the Repository
 
-## Learn More
+Open Git Bash and navigate to the folder you created to store the app. Clone the repository using:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+git clone https://github.com/SnubbullTrouble/whowantsthisdog.git
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Install Dependencies
+
+To install the project dependencies, open /whowantsthisdog/ in a command console. Run the command:
+
+```
+yarn install
+```
+
+# Start Development Server
+
+To start the development server, run the command:
+
+```
+yarn start
+```
