@@ -12,7 +12,7 @@ Yarn is the package manager used to manage dependencies. Use this to install exi
 
 ## MUI
 
-Material UI is a library of React components used for the UI.
+Material UI is a library of React components used for the UI. Read the [docs](https://mui.com/material-ui/getting-started/) for more information.
 
 ## Installing Node.js
 
