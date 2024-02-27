@@ -17,7 +17,7 @@ import User from "../Classes/User";
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
   justifyContent: "space-between",
-  backgroundColor: "#e065b7",
+  backgroundColor: "#4F7942",
 });
 
 const Search = styled("div")(({ theme }) => ({

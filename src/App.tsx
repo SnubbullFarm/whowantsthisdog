@@ -1,13 +1,19 @@
 import "./App.css";
-import FullWidthGrid from "./Components/Feed";
+import FullWidthGrid from "./Components/Results";
 import Cat from "./Classes/Breeds";
 import Listing from "./Classes/Listing";
 import Sidebar from "./Components/SideBar";
 import { Box, Stack } from "@mui/material";
 import NavBar from "./Components/NavBar";
 import User from "./Classes/User";
+import { useState } from "react";
+import { State } from "./Classes/State";
+import About from "./Components/About";
+import { ThemeProvider, useTheme } from "@emotion/react";
+import { theme } from "./Themes/theme";
 
 function App() {
+  let [state, setState] = useState<State>(State.About);
   const listing = new Listing(
     0,
     "cat",
@@ -17,21 +23,7 @@ function App() {
     Cat.Maine_Coon.toString(),
     "@snubbulltrouble"
   );
-  let props: Listing[] = [
-    listing,
-    listing,
-    listing,
-    listing,
-    listing,
-    listing,
-    listing,
-    listing,
-    listing,
-    listing,
-    listing,
-    listing,
-    listing,
-  ];
+  let props: Listing[] = [listing];
   let user = new User(
     "@snubbulltrouble",
     "Macon",
@@ -40,13 +32,22 @@ function App() {
   );
   return (
     <>
-      <Box bgcolor={"background.default"} color={"text.primary"}>
-        <NavBar user={user}></NavBar>
-        <Stack direction="row" spacing={2} justifyContent="space-between">
-          <Sidebar></Sidebar>
-          <FullWidthGrid items={props}></FullWidthGrid>
-        </Stack>
-      </Box>
+      <ThemeProvider theme={theme}>
+        {state === State.Results ? (
+          <Box bgcolor={"background.default"} color={"text.primary"}>
+            <NavBar user={user}></NavBar>
+            <Stack direction="row" spacing={2} justifyContent="space-between">
+              <Sidebar state={state} setState={setState}></Sidebar>
+              <FullWidthGrid items={props}></FullWidthGrid>
+            </Stack>
+          </Box>
+        ) : null}
+        {state === State.About ? (
+          <Stack direction="column">
+            <About state={state} setState={setState}></About>
+          </Stack>
+        ) : null}
+      </ThemeProvider>
     </>
   );
 }
