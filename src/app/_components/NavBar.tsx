@@ -12,7 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import User from "./User";
+import type User from "./User";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -71,10 +71,10 @@ const Navbar = ({ user }: Props) => {
           <Avatar
             sx={{ width: 30, height: 30 }}
             src={user.image}
-            onClick={(e) => setOpen(true)}
+            onClick={() => setOpen(true)}
           />
         </Icons>
-        <UserBox onClick={(e) => setOpen(true)}>
+        <UserBox onClick={() => setOpen(true)}>
           <Avatar sx={{ width: 30, height: 30 }} src={user.image} />
           <Typography component="span">{user.username}</Typography>
         </UserBox>
@@ -83,7 +83,7 @@ const Navbar = ({ user }: Props) => {
         id="demo-positioned-menu"
         aria-labelledby="demo-positioned-button"
         open={open}
-        onClose={(e) => setOpen(false)}
+        onClose={() => setOpen(false)}
         anchorOrigin={{
           vertical: "top",
           horizontal: "right",

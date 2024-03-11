@@ -10,7 +10,7 @@ import User from "./_components/User";
 import { useState } from "react";
 import { State } from "./_components/State";
 import About from "./_components/About";
-import { ThemeProvider, useTheme } from "@emotion/react";
+import { ThemeProvider } from "@emotion/react";
 import { theme } from "./_components/theme";
 
 function App() {

@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button/Button";
-import { Dispatch, SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import { State } from "./State";
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
   setState: Dispatch<SetStateAction<number>>;
 }
 
-export default function About({ state, setState }: Props) {
+export default function About({ setState }: Props) {
   return (
     <>
       <Box flex={4} p={{ xs: 0, md: 2 }}>

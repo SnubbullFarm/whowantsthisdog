@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import ImgMediaCard from "./ListingCard";
-import Listing from "./Listing";
+import type Listing from "./Listing";
 
 interface Props {
   items: Listing[];

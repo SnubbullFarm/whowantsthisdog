@@ -15,7 +15,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import { Dispatch, SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import { State } from "./State";
 
 interface Props {
@@ -23,7 +23,7 @@ interface Props {
   setState: Dispatch<SetStateAction<number>>;
 }
 
-const Sidebar = ({ state, setState }: Props) => {
+const Sidebar = ({ setState }: Props) => {
   return (
     <Box flex={1} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
       <Box position="fixed">
