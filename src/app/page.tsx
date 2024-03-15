@@ -7,14 +7,10 @@ import Sidebar from "./_components/SideBar";
 import { Box, Stack } from "@mui/material";
 import NavBar from "./_components/NavBar";
 import User from "./_components/User";
-import { useState } from "react";
-import { State } from "./_components/State";
-import About from "./_components/About";
 import { ThemeProvider } from "@emotion/react";
 import { theme } from "./_components/theme";
 
 function App() {
-  const [state, setState] = useState<State>(State.About);
   const listing = new Listing(
     0,
     "cat",
@@ -34,20 +30,13 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        {state === State.Results ? (
-          <Box bgcolor={"background.default"} color={"text.primary"}>
-            <NavBar user={user}></NavBar>
-            <Stack direction="row" spacing={2} justifyContent="space-between">
-              <Sidebar state={state} setState={setState}></Sidebar>
-              <FullWidthGrid items={props}></FullWidthGrid>
-            </Stack>
-          </Box>
-        ) : null}
-        {state === State.About ? (
-          <Stack direction="column">
-            <About state={state} setState={setState}></About>
+        <Box bgcolor={"background.default"} color={"text.primary"}>
+          <NavBar user={user}></NavBar>
+          <Stack direction="row" spacing={2} justifyContent="space-between">
+            <Sidebar></Sidebar>
+            <FullWidthGrid items={props}></FullWidthGrid>
           </Stack>
-        ) : null}
+        </Box>
       </ThemeProvider>
     </>
   );

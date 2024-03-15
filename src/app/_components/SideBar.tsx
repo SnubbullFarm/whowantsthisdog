@@ -15,15 +15,9 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import type { Dispatch, SetStateAction } from "react";
-import { State } from "./State";
+import Link from "next/link";
 
-interface Props {
-  state: number;
-  setState: Dispatch<SetStateAction<number>>;
-}
-
-const Sidebar = ({ setState }: Props) => {
+const Sidebar = () => {
   return (
     <Box flex={1} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
       <Box position="fixed">
@@ -77,12 +71,14 @@ const Sidebar = ({ setState }: Props) => {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" onClick={() => setState(State.About)}>
-              <ListItemIcon>
-                <InfoIcon />
-              </ListItemIcon>
-              <ListItemText primary="About" />
-            </ListItemButton>
+            <Link href="/about" passHref>
+              <ListItemButton component="a">
+                <ListItemIcon>
+                  <InfoIcon />
+                </ListItemIcon>
+                <ListItemText primary="About" />
+              </ListItemButton>
+            </Link>
           </ListItem>
         </List>
       </Box>
