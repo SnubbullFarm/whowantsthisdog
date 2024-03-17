@@ -1,25 +1,3 @@
-# Environment
-
-This stack for this project includes T3, Yarn, Node.js, React, and Material UI.
-
-## Tech Stack
-
-This project uses the full T3 tech stack with Next.js, NextAuth (Discored), and Postgres.
-
-See more information on the T3 [website](https://create.t3.gg/)
-
-## Node.js
-
-Node.js and React are the frameworks of the app.
-
-## Yarn
-
-Yarn is the package manager used to manage dependencies. Use this to install existing or add new APIs.
-
-## MUI
-
-Material UI is a library of React components used for the UI. Read the [docs](https://mui.com/material-ui/getting-started/) for more information.
-
 # Installation Instructions
 
 To Node is required prior to downloading the project.
@@ -57,6 +35,12 @@ git clone https://github.com/SnubbullTrouble/whowantsthisdog.git
 To install the project dependencies, open /whowantsthisdog/ in a command console. Run the command:
 
 ```
+yarn
+```
+
+or
+
+```
 yarn install
 ```
 
@@ -81,6 +65,14 @@ Contact Macon Code to inquire about the application information.
 # Using the Development Server
 
 The app runs locally on a local server.
+
+## Hot Reload
+
+To devlop with hot reload, use the command:
+
+```
+yarn dev
+```
 
 ## Building the Application
 
