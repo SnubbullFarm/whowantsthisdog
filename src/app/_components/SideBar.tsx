@@ -70,16 +70,16 @@ const Sidebar = () => {
               <ListItemText primary="Profile" />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding>
-            <Link href="/about" passHref>
+          <Link href="/about" passHref legacyBehavior>
+            <ListItem disablePadding>
               <ListItemButton component="a">
                 <ListItemIcon>
                   <InfoIcon />
                 </ListItemIcon>
                 <ListItemText primary="About" />
               </ListItemButton>
-            </Link>
-          </ListItem>
+            </ListItem>
+          </Link>
         </List>
       </Box>
     </Box>
