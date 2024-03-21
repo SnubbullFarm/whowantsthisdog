@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import type User from "./User";
+import Link from "next/link";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -93,8 +94,12 @@ const Navbar = ({ user }: Props) => {
           horizontal: "right",
         }}
       >
-        <MenuItem>Profile</MenuItem>
-        <MenuItem>My account</MenuItem>
+        <Link href={"/profile"} passHref legacyBehavior>
+          <MenuItem>Profile</MenuItem>
+        </Link>
+        <Link href={"/settings"} passHref legacyBehavior>
+          <MenuItem>My account</MenuItem>
+        </Link>
         <MenuItem>Logout</MenuItem>
       </Menu>
     </AppBar>
