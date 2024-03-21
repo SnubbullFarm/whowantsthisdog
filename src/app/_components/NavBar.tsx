@@ -1,9 +1,10 @@
-import { Mail, Notifications, Pets } from "@mui/icons-material";
+import { Mail, Notifications } from "@mui/icons-material";
 import {
   AppBar,
   Avatar,
   Badge,
   Box,
+  Grid,
   InputBase,
   Menu,
   MenuItem,
@@ -55,10 +56,14 @@ const Navbar = ({ user }: Props) => {
   return (
     <AppBar position="sticky">
       <StyledToolbar>
-        <Typography variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
-          WWTD?
+        <img src={"logo.png"} width={50} height={50} alt="logo" />
+        <Typography
+          align="left"
+          variant="h6"
+          sx={{ display: { xs: "none", sm: "block" } }}
+        >
+          Who Wants this Dog?
         </Typography>
-        <Pets sx={{ display: { xs: "block", sm: "none" } }} />
         <Search>
           <InputBase placeholder="Search..." />
         </Search>
