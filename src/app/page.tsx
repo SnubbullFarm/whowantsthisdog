@@ -1,6 +1,6 @@
 "use client";
 
-import FullWidthGrid from "./_components/Results";
+import FullWidthGrid from "./_components/FullWidthGrid";
 import Cat from "./_components/Breeds";
 import Listing from "./_components/Listing";
 import Sidebar from "./_components/SideBar";
