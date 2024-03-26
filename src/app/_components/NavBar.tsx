@@ -16,6 +16,7 @@ import TuneIcon from "@mui/icons-material/Tune";
 import React, { useState } from "react";
 import type User from "./User";
 import Link from "next/link";
+import FormDialog from "./FilterModal";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -54,6 +55,7 @@ interface Props {
 
 const Navbar = ({ user }: Props) => {
   const [openAccountMenu, setOpenAccountMenu] = useState(false);
+  const [openFilterModal, setOpenFilterModal] = useState(false);
   return (
     <AppBar position="sticky">
       <StyledToolbar>
@@ -71,7 +73,7 @@ const Navbar = ({ user }: Props) => {
           <InputBase placeholder="Search..." />
         </Search>
         <Icons ml={2}>
-          <TuneIcon></TuneIcon>
+          <TuneIcon onClick={() => setOpenFilterModal(true)}></TuneIcon>
         </Icons>
         <Icons ml={4}>
           <Badge badgeContent={4} color="error">
@@ -112,6 +114,10 @@ const Navbar = ({ user }: Props) => {
         </Link>
         <MenuItem>Logout</MenuItem>
       </Menu>
+      <FormDialog
+        showModal={openFilterModal}
+        closeModal={setOpenFilterModal}
+      ></FormDialog>
     </AppBar>
   );
 };
