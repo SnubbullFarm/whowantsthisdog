@@ -12,6 +12,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
+import TuneIcon from "@mui/icons-material/Tune";
 import React, { useState } from "react";
 import type User from "./User";
 import Link from "next/link";
@@ -52,22 +53,27 @@ interface Props {
 }
 
 const Navbar = ({ user }: Props) => {
-  const [open, setOpen] = useState(false);
+  const [openAccountMenu, setOpenAccountMenu] = useState(false);
   return (
     <AppBar position="sticky">
       <StyledToolbar>
-        <img src={"logo.png"} width={50} height={50} alt="logo" />
+        <Avatar src={"logo.png"} sx={{ width: 50, height: 50 }} alt="logo" />
         <Typography
+          ml={4}
+          mr={4}
           align="left"
           variant="h6"
           sx={{ display: { xs: "none", sm: "block" } }}
         >
           Who Wants this Dog?
         </Typography>
-        <Search>
+        <Search sx={{ flexGrow: 1 }}>
           <InputBase placeholder="Search..." />
         </Search>
-        <Icons>
+        <Icons ml={2}>
+          <TuneIcon></TuneIcon>
+        </Icons>
+        <Icons ml={4}>
           <Badge badgeContent={4} color="error">
             <Mail />
           </Badge>
@@ -77,19 +83,18 @@ const Navbar = ({ user }: Props) => {
           <Avatar
             sx={{ width: 30, height: 30 }}
             src={user.image}
-            onClick={() => setOpen(true)}
+            onClick={() => setOpenAccountMenu(true)}
           />
         </Icons>
-        <UserBox onClick={() => setOpen(true)}>
-          <Avatar sx={{ width: 30, height: 30 }} src={user.image} />
+        <UserBox onClick={() => setOpenAccountMenu(true)}>
           <Typography component="span">{user.username}</Typography>
         </UserBox>
       </StyledToolbar>
       <Menu
         id="demo-positioned-menu"
         aria-labelledby="demo-positioned-button"
-        open={open}
-        onClose={() => setOpen(false)}
+        open={openAccountMenu}
+        onClose={() => setOpenAccountMenu(false)}
         anchorOrigin={{
           vertical: "top",
           horizontal: "right",

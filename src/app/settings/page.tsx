@@ -12,7 +12,7 @@ function Settings() {
     "@snubbulltrouble",
     "Macon",
     ["God", "Emporer", "King"],
-    undefined
+    "profile_pic.png"
   );
 
   return (
