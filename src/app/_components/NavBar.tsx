@@ -1,22 +1,14 @@
-import { Mail, Notifications } from "@mui/icons-material";
-import {
-  AppBar,
-  Avatar,
-  Badge,
-  Box,
-  Grid,
-  InputBase,
-  Menu,
-  MenuItem,
-  styled,
-  Toolbar,
-  Typography,
-} from "@mui/material";
-import TuneIcon from "@mui/icons-material/Tune";
+import { AppBar, Avatar, Badge, Box, IconButton, InputBase, Menu, MenuItem, styled, Toolbar, Typography } from "@mui/material";
 import React, { useState } from "react";
-import type User from "./User";
+import User from "./User";
+import LoginModal from "./LoginModal";
+import { Mail, Notifications, Search as SearchIcon } from "@mui/icons-material";
+import TuneIcon from "@mui/icons-material/Tune"; // Added import for TuneIcon
 import Link from "next/link";
-import FormDialog from "./FilterModal";
+
+interface Props {
+  user: User;
+}
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -49,13 +41,20 @@ const UserBox = styled(Box)(({ theme }) => ({
   },
 }));
 
-interface Props {
-  user: User;
-}
+const Navbar: React.FC<Props> = ({ user }) => {
+  const [open, setOpen] = useState(false);
+  const [mailCount, setMailCount] = useState(4); // Initialize mail count
+  const [notificationsCount, setNotificationsCount] = useState(2); // Initialize notifications count
+  const [isLoginModalOpen, setLoginModalOpen] = useState(false);
 
-const Navbar = ({ user }: Props) => {
-  const [openAccountMenu, setOpenAccountMenu] = useState(false);
-  const [openFilterModal, setOpenFilterModal] = useState(false);
+  const handleOpenLoginModal = () => {
+    setLoginModalOpen(true);
+  };
+
+  const handleCloseLoginModal = () => {
+    setLoginModalOpen(false);
+  };
+
   return (
     <AppBar position="sticky">
       <StyledToolbar>
@@ -67,36 +66,44 @@ const Navbar = ({ user }: Props) => {
           variant="h6"
           sx={{ display: { xs: "none", sm: "block" } }}
         >
-          Who Wants this Dog?
+          Macon Pet Finder
         </Typography>
         <Search sx={{ flexGrow: 1 }}>
-          <InputBase placeholder="Search..." />
+          <InputBase
+            placeholder="Search..."
+            sx={{
+              color: "gray",
+              "&::placeholder": { color: "lightgray" },
+            }}
+          />
         </Search>
         <Icons ml={2}>
-          <TuneIcon onClick={() => setOpenFilterModal(true)}></TuneIcon>
+          <TuneIcon onClick={() => setOpen(true)} />
         </Icons>
         <Icons ml={4}>
-          <Badge badgeContent={4} color="error">
-            <Mail />
-          </Badge>
-          <Badge badgeContent={2} color="error">
-            <Notifications />
-          </Badge>
-          <Avatar
-            sx={{ width: 30, height: 30 }}
-            src={user.image}
-            onClick={() => setOpenAccountMenu(true)}
-          />
+          <IconButton color="inherit">
+            <Badge badgeContent={mailCount} color="secondary">
+              <Mail />
+            </Badge>
+          </IconButton>
+          <IconButton color="inherit">
+            <Badge badgeContent={notificationsCount} color="secondary">
+              <Notifications />
+            </Badge>
+          </IconButton>
+          <IconButton color="inherit" onClick={handleOpenLoginModal}>
+            <Avatar sx={{ width: 30, height: 30 }} src={user.image} />
+          </IconButton>
         </Icons>
-        <UserBox onClick={() => setOpenAccountMenu(true)}>
+        <UserBox>
           <Typography component="span">{user.username}</Typography>
         </UserBox>
       </StyledToolbar>
       <Menu
         id="demo-positioned-menu"
         aria-labelledby="demo-positioned-button"
-        open={openAccountMenu}
-        onClose={() => setOpenAccountMenu(false)}
+        open={open}
+        onClose={() => setOpen(false)}
         anchorOrigin={{
           vertical: "top",
           horizontal: "right",
@@ -106,18 +113,12 @@ const Navbar = ({ user }: Props) => {
           horizontal: "right",
         }}
       >
-        <Link href={"/profile"} passHref legacyBehavior>
+        <Link href={"/profile"} passHref>
           <MenuItem>Profile</MenuItem>
-        </Link>
-        <Link href={"/settings"} passHref legacyBehavior>
-          <MenuItem>My account</MenuItem>
         </Link>
         <MenuItem>Logout</MenuItem>
       </Menu>
-      <FormDialog
-        showModal={openFilterModal}
-        closeModal={setOpenFilterModal}
-      ></FormDialog>
+      <LoginModal open={isLoginModalOpen} onClose={handleCloseLoginModal} />
     </AppBar>
   );
 };
