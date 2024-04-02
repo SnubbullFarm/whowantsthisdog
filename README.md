@@ -1,4 +1,4 @@
-# Installation Instructions
+git # Installation Instructions
 
 To Node is required prior to downloading the project.
 
@@ -93,3 +93,13 @@ yarn start
 ## Stopping Developement Server
 
 To stop the server, use <kbd>Ctrl</kbd> + <kbd>C</kbd>.
+
+## Using Docker to containerize while working 
+
+To spin up a docker image of the application, use the docker-compose.yml file by running
+```
+docker-compose up --build --force-recreate
+```
+Then, you can edit the program and it will keep compiling your code just like the yarn dev build
+
+DISCLAIMER: You MUST change into the directory of the app and run the `yarn install` command before running the docker-compose command. 

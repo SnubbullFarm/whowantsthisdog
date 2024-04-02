@@ -59,7 +59,7 @@ const Navbar = ({ user }: Props) => {
   return (
     <AppBar position="sticky">
       <StyledToolbar>
-        <Avatar src={"logo.png"} sx={{ width: 50, height: 50 }} alt="logo" />
+        <Avatar src={"logo.PNG"} sx={{ width: 50, height: 50 }} alt="logo" />
         <Typography
           ml={4}
           mr={4}
