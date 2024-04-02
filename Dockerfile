@@ -14,7 +14,7 @@ RUN yarn install
 COPY . .
 
 # Build the Next.js application
-RUN yarn build
+# RUN yarn build
 
 # Define the command to start the Next.js application
 # Start the application (CMD replaced with ENTRYPOINT to allow overriding)
